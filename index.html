@@ -1,123 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
 
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 <script src="https://www.google.com/recaptcha/api.js"></script>
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f9;
-  margin: 0;
-}
-
-/* ✅ Header Styling */
-.header {
-  background: #0070d2;
-  color: white;
-  padding: 15px 0;
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-form {
-  width: 350px;
-  margin: 50px auto;
-  padding: 25px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-top: 10px;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 15px;
-  background: #0070d2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background: #005fb2;
-}
-</style>
-
 <script>
- function timestamp() { 
-   var response = document.getElementById("g-recaptcha-response"); 
-   if (response == null || response.value.trim() == "") {
-     var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
-     elems["ts"] = JSON.stringify(new Date().getTime());
-     document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
-   } 
- } 
- setInterval(timestamp, 500); 
-
- function validateForm() {
-   let email = document.getElementById("email").value;
-   let mobile = document.getElementById("mobile").value;
-
-   let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-   let mobilePattern = /^[0-9]{10}$/;
-
-   if (!email.match(emailPattern)) {
-     alert("Enter valid email");
-     return false;
-   }
-
-   if (!mobile.match(mobilePattern)) {
-     alert("Enter valid 10 digit mobile number");
-     return false;
-   }
-
-   let captcha = document.getElementById("g-recaptcha-response").value;
-   if (captcha === "") {
-     alert("Please complete CAPTCHA");
-     return false;
-   }
-
-   return true;
- }
+ function timestamp() { var response = document.getElementById("g-recaptcha-response");
+       if (response == null || response.value.trim() == "") 
+      {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] 
+        = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } }
+  setInterval(timestamp, 500); 
 </script>
-</head>
-
-<body>
-
-<!-- ✅ HEADER ADDED -->
-<div class="header">
-  Web To Lead Form
-</div>
 
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: Please add the following <FORM> element to your page.             -->
 <!--  ----------------------------------------------------------------------  -->
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000qPNIa" method="POST" onsubmit="return validateForm()">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdM00000qPNIa" method="POST">
 
 <input type=hidden name='captcha_settings' value='{"keyname":"API5","fallback":"true","orgId":"00DdM00000qPNIa","ts":""}'>
 <input type=hidden name="oid" value="00DdM00000qPNIa">
-<input type=hidden name="retURL" value="https://tirthhshah.github.io">
-
+<input type=hidden name="retURL" value="https://tirthhshah.github.io/">
 <!--  ----------------------------------------------------------------------  -->
 <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
 <!--  these lines if you wish to test in debug mode.                          -->
@@ -126,29 +31,19 @@ input[type="submit"]:hover {
 <!--  value="tirthhshah18mvclouds@gmail.com">                                 -->
 <!--  ----------------------------------------------------------------------  -->
 
-<label for="first_name">First Name</label>
-<input id="first_name" maxlength="40" name="first_name" type="text" />
+<label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
-<label for="last_name">Last Name</label>
-<input id="last_name" maxlength="80" name="last_name" type="text" required />
+<label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
 
-<label for="email">Email</label>
-<input id="email" maxlength="80" name="email" type="text" required />
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-<label for="company">Company</label>
-<input id="company" maxlength="40" name="company" type="text" required />
+<label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
 
-<label for="url">Website</label>
-<input id="url" maxlength="80" name="url" type="text" />
+<label for="url">Website</label><input  id="url" maxlength="80" name="url" size="20" type="text" /><br>
 
-<label for="mobile">Mobile</label>
-<input id="mobile" maxlength="40" name="mobile" type="text" required />
+<label for="mobile">Mobile</label><input  id="mobile" maxlength="40" name="mobile" size="20" type="text" /><br>
 
 <div class="g-recaptcha" data-sitekey="6LeUjJYsAAAAACLBmBANQlnWbKL8mORsXgkwFKy4"></div><br>
-
-<input type="submit" name="submit" value="Submit">
+<input type="submit" name="submit">
 
 </form>
-
-</body>
-</html>
